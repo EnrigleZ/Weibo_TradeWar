@@ -8,9 +8,9 @@ async function fetchTopicByDate(year, month, date) {
 }
 
 var basePath = 'data/topics'
-function saveJson(json, date) {
+function saveJson(json, name) {
     const s = JSON.stringify(json, null, 2)
-    const path = `${basePath}/${date.toLocaleDateString()}.json`
+    const path = `${basePath}/${name}.json`
 
     fs.writeFileSync(path, s)
 }
