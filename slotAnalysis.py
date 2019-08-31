@@ -66,6 +66,7 @@ def filterCharacter(ls):
 
 if __name__ == "__main__":
   event_not_matched = []
+  event_matched = []
   for _, row in df.iterrows():
     time, event = str(row['time']), row['event']
     items = (getItemsByDate(time))
@@ -75,6 +76,7 @@ if __name__ == "__main__":
       event_not_matched.append((time, event))
       continue
     
+    event_matched.append((time, event))
     print(time, event, ":")
     print([topic['keyword'] for topic in result_topics])
     print('-------------------------\n')
@@ -83,3 +85,5 @@ if __name__ == "__main__":
   for not_match in event_not_matched:
     print(not_match)
   
+  print('---------------------------\n')
+  print('other %d events matched'%len(event_matched))
